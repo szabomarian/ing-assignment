@@ -1,7 +1,10 @@
 package nl.ing.mortgage.affordability.model;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public enum MortgageInterestRate {
 
     TEN_YEARS_MORTGAGE(10 * 12, 2.3F, LocalDateTime.of(2024, 10, 10, 0, 0, 0, 0)),
