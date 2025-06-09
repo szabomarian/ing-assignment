@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability;
+package nl.ing.mortgage.affordability.interest.rate;
 
 import nl.ing.mortgage.affordability.model.MortgageInterestRate;
 import org.springframework.stereotype.Service;

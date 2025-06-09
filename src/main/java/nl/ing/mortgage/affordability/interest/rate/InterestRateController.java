@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability;
+package nl.ing.mortgage.affordability.interest.rate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

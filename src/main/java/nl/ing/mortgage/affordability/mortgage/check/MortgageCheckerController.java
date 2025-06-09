@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability;
+package nl.ing.mortgage.affordability.mortgage.check;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

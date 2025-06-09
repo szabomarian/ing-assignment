@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability;
+package nl.ing.mortgage.affordability.interest.rate;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability;
+package nl.ing.mortgage.affordability.mortgage.check;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
