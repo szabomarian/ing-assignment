@@ -1,9 +1,11 @@
 package nl.ing.mortgage.affordability.mortgage.check;
 
+import java.math.BigDecimal;
+
 public record MortgageAffordabilityRequest(
-        int income,
+        BigDecimal income,
         int maturityPeriod,
-        long loanValue,
-        long homeValue
+        BigDecimal loanValue,
+        BigDecimal homeValue
 ) {
 }
