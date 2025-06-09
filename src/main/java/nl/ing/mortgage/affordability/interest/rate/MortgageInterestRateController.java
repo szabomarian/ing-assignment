@@ -9,12 +9,12 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/interest-rates")
-public class InterestRateController {
+public class MortgageInterestRateController {
 
     private final MortgageInterestRateRepository mortgageInterestRateRepository;
 
     @Autowired
-    public InterestRateController(final MortgageInterestRateRepository mortgageInterestRateRepository) {
+    public MortgageInterestRateController(final MortgageInterestRateRepository mortgageInterestRateRepository) {
         this.mortgageInterestRateRepository = mortgageInterestRateRepository;
     }
 

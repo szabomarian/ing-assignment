@@ -1,6 +1,6 @@
 package nl.ing.mortgage.affordability;
 
-import nl.ing.mortgage.affordability.interest.rate.InterestRateController;
+import nl.ing.mortgage.affordability.interest.rate.MortgageInterestRateController;
 import nl.ing.mortgage.affordability.mortgage.check.MortgageCheckerController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class MortgageAffordabilityApplicationTests {
 
     @Autowired
-    private InterestRateController interestRateController;
+    private MortgageInterestRateController mortgageInterestRateController;
 
     @Autowired
     private MortgageCheckerController mortgageCheckerController;
 
     @Test
     void interestRateControllerIsInitialized() {
-        assertNotNull(interestRateController);
+        assertNotNull(mortgageInterestRateController);
     }
 
     @Test
