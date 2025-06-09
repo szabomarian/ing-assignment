@@ -1,7 +1,10 @@
 package nl.ing.mortgage.affordability.model;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.Optional;
 
+@EqualsAndHashCode
 public class AffordabilityDecision {
     private final boolean affordable;
     private final Float monthlyAmount;
