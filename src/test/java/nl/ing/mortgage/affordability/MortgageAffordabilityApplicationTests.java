@@ -12,9 +12,17 @@ class MortgageAffordabilityApplicationTests {
     @Autowired
     private InterestRateController interestRateController;
 
+    @Autowired
+    private MortgageCheckerController mortgageCheckerController;
+
     @Test
-    void contextLoads() {
+    void interestRateControllerIsInitialized() {
         assertNotNull(interestRateController);
+    }
+
+    @Test
+    void mortgageCheckerControllerIsInitialized() {
+        assertNotNull(mortgageCheckerController);
     }
 
 }
