@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability.mortgage.check;
+package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 
 import org.junit.jupiter.api.Test;
 

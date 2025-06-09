@@ -1,8 +1,8 @@
-package nl.ing.mortgage.affordability.mortgage.check;
+package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 
 import java.math.BigDecimal;
 
-public class HomeValueValidator {
+class HomeValueValidator {
     public boolean isValid(BigDecimal homeValue, BigDecimal loanAmount) {
         return homeValue.compareTo(loanAmount) >= 0;
     }

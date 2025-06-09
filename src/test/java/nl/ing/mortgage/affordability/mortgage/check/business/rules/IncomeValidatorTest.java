@@ -1,4 +1,4 @@
-package nl.ing.mortgage.affordability.mortgage.check;
+package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
-import static nl.ing.mortgage.affordability.mortgage.check.IncomeValidator.INCOME_MULTIPLIER;
+import static nl.ing.mortgage.affordability.mortgage.check.business.rules.IncomeValidator.INCOME_MULTIPLIER;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

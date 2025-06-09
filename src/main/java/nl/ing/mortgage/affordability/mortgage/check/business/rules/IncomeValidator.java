@@ -1,8 +1,8 @@
-package nl.ing.mortgage.affordability.mortgage.check;
+package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 
 import java.math.BigDecimal;
 
-public class IncomeValidator {
+class IncomeValidator {
 
     public static final BigDecimal INCOME_MULTIPLIER = BigDecimal.valueOf(4L);
 
