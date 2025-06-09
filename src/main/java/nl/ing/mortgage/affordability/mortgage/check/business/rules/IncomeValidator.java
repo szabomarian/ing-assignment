@@ -1,7 +1,10 @@
 package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 
+@Service
 class IncomeValidator {
 
     public static final BigDecimal INCOME_MULTIPLIER = BigDecimal.valueOf(4L);
