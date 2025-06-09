@@ -13,7 +13,7 @@ public class MortgageInterestRateRepository {
 
     MortgageInterestRateRepository() {
         this.interestRates = Arrays.stream(MortgageInterestRate.values()).map(mortgageInterestRate -> new MortgageInterestRateResponse(
-                mortgageInterestRate.getMaturityPeriod(),
+                mortgageInterestRate.getMaturityPeriodInMonths(),
                 mortgageInterestRate.getInterestRate(),
                 mortgageInterestRate.getLastUpdate()
         )).collect(Collectors.toUnmodifiableSet());

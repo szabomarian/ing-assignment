@@ -11,7 +11,7 @@ public enum MortgageInterestRate {
     TWENTY_YEARS_MORTGAGE(20 * 12, 2.8F, LocalDateTime.of(2025, 3, 10, 0, 0, 0, 0)),
     THIRTY_YEARS_MORTGAGE(20 * 12, 3.5F, LocalDateTime.of(2025, 4, 10, 0, 0, 0, 0));
 
-    final int maturityPeriod;
+    final int maturityPeriodInMonths;
     final float interestRate;
     final LocalDateTime lastUpdate;
 
@@ -22,7 +22,7 @@ public enum MortgageInterestRate {
         if (maturityPeriodInMonths < 0) {
             throw new IllegalArgumentException("The maturity period must be greater than zero");
         }
-        this.maturityPeriod = maturityPeriodInMonths;
+        this.maturityPeriodInMonths = maturityPeriodInMonths;
         this.interestRate = interestRate;
         this.lastUpdate = lastUpdate;
     }
