@@ -17,13 +17,13 @@ class IncomeValidatorTest {
     @ParameterizedTest
     @MethodSource("getQualifyingIncomesAndLoanedAmounts")
     void testPositiveScenarios(BigDecimal income, BigDecimal loanAmount) {
-        assertTrue(incomeValidator.isValid(income, loanAmount));
+        assertTrue(incomeValidator.qualifies(income, loanAmount));
     }
 
     @ParameterizedTest
     @MethodSource("getNonQualifyingIncomesAndLoanedAmounts")
     void testNegativeScenarios(BigDecimal income, BigDecimal loanAmount) {
-        assertFalse(incomeValidator.isValid(income, loanAmount));
+        assertFalse(incomeValidator.qualifies(income, loanAmount));
     }
 
     private static Stream<Arguments> getQualifyingIncomesAndLoanedAmounts() {

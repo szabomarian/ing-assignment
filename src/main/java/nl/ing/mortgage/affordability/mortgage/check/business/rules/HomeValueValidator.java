@@ -3,7 +3,7 @@ package nl.ing.mortgage.affordability.mortgage.check.business.rules;
 import java.math.BigDecimal;
 
 class HomeValueValidator {
-    public boolean isValid(BigDecimal homeValue, BigDecimal loanAmount) {
+    public boolean qualifies(BigDecimal homeValue, BigDecimal loanAmount) {
         return homeValue.compareTo(loanAmount) >= 0;
     }
 }

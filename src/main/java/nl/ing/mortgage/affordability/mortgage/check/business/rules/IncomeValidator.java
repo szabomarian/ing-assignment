@@ -6,7 +6,7 @@ class IncomeValidator {
 
     public static final BigDecimal INCOME_MULTIPLIER = BigDecimal.valueOf(4L);
 
-    public boolean isValid(BigDecimal income, BigDecimal loanAmount) {
+    public boolean qualifies(BigDecimal income, BigDecimal loanAmount) {
         return getMaximumBorrowingAmount(income).compareTo(loanAmount) >= 0;
     }
 

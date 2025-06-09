@@ -13,16 +13,16 @@ class HomeValueValidatorTest {
 
     @Test
     void shouldReturnFalseWhenHomeValueIsGreaterThanTheLoanAmount() {
-        assertFalse(validator.isValid(BigDecimal.ONE, BigDecimal.TEN));
+        assertFalse(validator.qualifies(BigDecimal.ONE, BigDecimal.TEN));
     }
 
     @Test
     void shouldReturnTrueWhenHomeValueIsSmallerThanTheLoanAmount() {
-        assertTrue(validator.isValid(BigDecimal.TEN, BigDecimal.ONE));
+        assertTrue(validator.qualifies(BigDecimal.TEN, BigDecimal.ONE));
     }
 
     @Test
     void shouldReturnTrueWhenHomeValueEqualsTheLoanAmount() {
-        assertTrue(validator.isValid(BigDecimal.TEN, BigDecimal.TEN));
+        assertTrue(validator.qualifies(BigDecimal.TEN, BigDecimal.TEN));
     }
 }
