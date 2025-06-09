@@ -19,6 +19,9 @@ public enum MortgageInterestRate {
         if (lastUpdate.isAfter(LocalDateTime.now())) {
             throw new IllegalArgumentException("Last update can only be in the past");
         }
+        if (maturityPeriodInMonths < 0) {
+            throw new IllegalArgumentException("The maturity period must be greater than zero");
+        }
         this.maturityPeriod = maturityPeriodInMonths;
         this.interestRate = interestRate;
         this.lastUpdate = lastUpdate;
