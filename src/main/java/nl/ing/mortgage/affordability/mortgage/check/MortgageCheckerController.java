@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/api/mortgage-check")
 public class MortgageCheckerController {
     private final MortgageAffordabilityService mortgageAffordabilityService;
 
@@ -24,7 +24,7 @@ public class MortgageCheckerController {
         this.mortgageAffordabilityService = mortgageAffordabilityService;
     }
 
-    @PostMapping
+    @PostMapping(value="/api/mortgage-check", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public MortgageAffordabilityResponse check(@RequestBody MortgageAffordabilityRequest mortgageAffordabilityRequest) {
         validateMortgageAffordabilityRequest(mortgageAffordabilityRequest);
         return new MortgageAffordabilityResponse(mortgageAffordabilityService.checkMortgageRequest(mortgageAffordabilityRequest));
