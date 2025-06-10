@@ -6,8 +6,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
@@ -33,7 +31,7 @@ class MortgageValidatorTest {
         when(mortgageValidator.getIncomeValidator()).thenReturn(incomeValidator);
         when(incomeValidator.qualifies(any(), any())).thenReturn(true);
         when(homeValueValidator.qualifies(any(), any())).thenReturn(true);
-        assertTrue(mortgageValidator.qualifies(BigDecimal.TEN, BigDecimal.ONE, BigDecimal.ONE));
+        assertTrue(mortgageValidator.qualifies(10F, 1F, 1F));
     }
 
     @Test
@@ -42,13 +40,13 @@ class MortgageValidatorTest {
         when(mortgageValidator.getIncomeValidator()).thenReturn(incomeValidator);
         when(incomeValidator.qualifies(any(), any())).thenReturn(false);
         when(homeValueValidator.qualifies(any(), any())).thenReturn(true);
-        assertFalse(mortgageValidator.qualifies(BigDecimal.TEN, BigDecimal.ONE, BigDecimal.ONE));
+        assertFalse(mortgageValidator.qualifies(10F, 1F, 1F));
     }
 
     @Test
     void qualifyingIncomeAndNonQualifyingHomeValueForMortgageShouldReturnFalse() {
         when(mortgageValidator.getHomeValueValidator()).thenReturn(homeValueValidator);
-        assertFalse(mortgageValidator.qualifies(BigDecimal.TEN, BigDecimal.ONE, BigDecimal.ONE));
+        assertFalse(mortgageValidator.qualifies(10F, 1F, 1F));
         verify(mortgageValidator, times(0)).getIncomeValidator();
     }
 
@@ -56,7 +54,7 @@ class MortgageValidatorTest {
     void nonQualifyingIncomeAndNonQualifyingHomeValueForMortgageShouldReturnFalse() {
         when(mortgageValidator.getHomeValueValidator()).thenReturn(homeValueValidator);
         when(homeValueValidator.qualifies(any(), any())).thenReturn(false);
-        assertFalse(mortgageValidator.qualifies(BigDecimal.TEN, BigDecimal.ONE, BigDecimal.ONE));
+        assertFalse(mortgageValidator.qualifies(10F, 1F, 1F));
         verify(mortgageValidator, times(0)).getIncomeValidator();
     }
 }

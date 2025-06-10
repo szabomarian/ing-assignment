@@ -4,7 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 import static nl.ing.mortgage.affordability.mortgage.check.business.rules.IncomeValidator.INCOME_MULTIPLIER;
@@ -16,30 +15,30 @@ class IncomeValidatorTest {
 
     @ParameterizedTest
     @MethodSource("getQualifyingIncomesAndLoanedAmounts")
-    void testPositiveScenarios(BigDecimal income, BigDecimal loanAmount) {
+    void testPositiveScenarios(float income, float loanAmount) {
         assertTrue(incomeValidator.qualifies(income, loanAmount));
     }
 
     @ParameterizedTest
     @MethodSource("getNonQualifyingIncomesAndLoanedAmounts")
-    void testNegativeScenarios(BigDecimal income, BigDecimal loanAmount) {
+    void testNegativeScenarios(float income, float loanAmount) {
         assertFalse(incomeValidator.qualifies(income, loanAmount));
     }
 
     private static Stream<Arguments> getQualifyingIncomesAndLoanedAmounts() {
-        BigDecimal income = new BigDecimal("40000.00");
+        float income = 40000.00F;
         return Stream.of(
-                Arguments.of(income, INCOME_MULTIPLIER.multiply(income)),
-                Arguments.of(income, INCOME_MULTIPLIER.multiply(income).subtract(BigDecimal.ONE)),
-                Arguments.of(income, income.add(BigDecimal.ONE))
+                Arguments.of(income, INCOME_MULTIPLIER * income),
+                Arguments.of(income, INCOME_MULTIPLIER * income - 1F),
+                Arguments.of(income, income + 1F)
         );
     }
 
     private static Stream<Arguments> getNonQualifyingIncomesAndLoanedAmounts() {
-        BigDecimal income = new BigDecimal("40000.00");
+        float income = 40000.00F;
         return Stream.of(
-                Arguments.of(income, INCOME_MULTIPLIER.add(BigDecimal.ONE).multiply(income)),
-                Arguments.of(income, INCOME_MULTIPLIER.multiply(income).add(BigDecimal.ONE))
+                Arguments.of(income, (INCOME_MULTIPLIER + 1F) * income),
+                Arguments.of(income, INCOME_MULTIPLIER * income + 1F)
         );
     }
 

@@ -8,8 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,14 +25,14 @@ class MortgageAffordabilityServiceTest {
 
     @Test
     void nonAffordableMortgageRequestShouldReturnNonAffordableDecision() {
-        var nonAffordableMortgageRequest = new MortgageAffordabilityRequest(BigDecimal.ONE, 120, BigDecimal.TEN, BigDecimal.ONE);
+        var nonAffordableMortgageRequest = new MortgageAffordabilityRequest(1F, 120, 10F, 1F);
         when(mortgageValidator.qualifies(any(), any(), any())).thenReturn(false);
         assertEquals(AffordabilityDecision.notAffordable(), mortgageAffordabilityService.checkMortgageRequest(nonAffordableMortgageRequest));
     }
 
     @Test
     void affordableMortgageRequestShouldReturnAffordableDecision() {
-        var nonAffordableMortgageRequest = new MortgageAffordabilityRequest(BigDecimal.ONE, 120, BigDecimal.TEN, BigDecimal.ONE);
+        var nonAffordableMortgageRequest = new MortgageAffordabilityRequest(1F, 10, 10F, 1F);
         when(mortgageValidator.qualifies(any(), any(), any())).thenReturn(true);
         AffordabilityDecision affordabilityDecision = mortgageAffordabilityService.checkMortgageRequest(nonAffordableMortgageRequest);
         assertNotNull(affordabilityDecision);
