@@ -3,6 +3,7 @@ package nl.ing.mortgage.affordability.model;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Getter
@@ -29,12 +30,11 @@ public enum MortgageInterestRate {
         this.lastUpdate = lastUpdate;
     }
 
-    public static MortgageInterestRate byMaturityPeriodInYears(int maturityPeriodInYears) {
+    public static Optional<MortgageInterestRate> byMaturityPeriodInYears(int maturityPeriodInYears) {
         var numberOfMonths = maturityPeriodInYears * MONTHS_IN_ONE_YEAR;
         return Stream.of(MortgageInterestRate.values())
                 .filter(mortgageInterestRate -> mortgageInterestRate.getMaturityPeriodInMonths() == numberOfMonths)
-                .findFirst()
-                .get();
+                .findFirst();
     }
 
 }

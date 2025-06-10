@@ -21,8 +21,8 @@ public class MortgageAffordabilityService {
         if (mortgageValidator.qualifies(mortgageAffordabilityRequest.income(), mortgageAffordabilityRequest.homeValue(), mortgageAffordabilityRequest.loanValue())) {
             return AffordabilityDecision.affordable(annuityMortgageCalculator.calculate(
                     mortgageAffordabilityRequest.loanValue(),
-                    MortgageInterestRate.byMaturityPeriodInYears(mortgageAffordabilityRequest.maturityPeriod()).getInterestRatePercentage(),
-                    mortgageAffordabilityRequest.maturityPeriod()
+                    MortgageInterestRate.byMaturityPeriodInYears(mortgageAffordabilityRequest.maturityPeriodInYears()).get().getInterestRatePercentage(),
+                    mortgageAffordabilityRequest.maturityPeriodInYears()
             ));
         } else {
             return AffordabilityDecision.notAffordable();

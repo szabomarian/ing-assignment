@@ -30,7 +30,7 @@ class MortgageCheckerControllerTest {
         var anyValidRequestAsJson = """
                 {
                     "income":50000,
-                    "maturityPeriod": 20,
+                    "maturityPeriodInYears": 20,
                     "loanValue": 100000,
                     "homeValue": 150000
                 }
@@ -47,7 +47,7 @@ class MortgageCheckerControllerTest {
         var anyValidRequestAsJson = """
                 {
                     "income":50000,
-                    "maturityPeriod": 20,
+                    "maturityPeriodInYears": 20,
                     "loanValue": 100000,
                     "homeValue": 150000
                 }
